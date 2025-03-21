@@ -18,7 +18,34 @@ const resultList = document.getElementById('result-list');
 recipeSelect.addEventListener('change', () => {
     inputSection.style.display = 'block';
     resultSection.style.display = 'none';
+
+    // Get the title element and the calculate button
+    const title = document.querySelector('h1');
+    let selectedColor;
+
+    // Determine the color based on the selected recipe
+    switch (recipeSelect.value) {
+        case 'lime':
+            selectedColor = 'green';
+            break;
+        case 'lemon':
+            selectedColor = '#d4af37';
+            break;
+        case 'orange':
+            selectedColor = 'orange';
+            break;
+        case 'grapefruit':
+            selectedColor = 'pink';
+            break;
+        default:
+            selectedColor = '#0073e6'; // default blue color
+    }
+
+    // Update the title text color and button background color
+    title.style.color = selectedColor;
+    calculateBtn.style.backgroundColor = selectedColor;
 });
+
 
 // Helper function to format numbers
 const formatNumber = (number) => {
